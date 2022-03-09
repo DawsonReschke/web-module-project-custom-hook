@@ -3,12 +3,13 @@ import axios from "axios";
 
 import Charts from "./components/Charts";
 import Navbar from "./components/Navbar";
+import useLocalStorage from "./components/localStorageHook";
 
 import "./style.css";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useLocalStorage('usesDarkMode',false); // use a local storage hook here
 
   useEffect(() => {
     axios
